@@ -1,4 +1,4 @@
-module yangyao/learn-go-01
+module learn-go-01
 
 go 1.12
 
