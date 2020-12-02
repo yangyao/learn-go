@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>{{.Adventure.Title}}</title>
+</head>
+
+<body>
+
+    <h1>{{.Adventure.Title}}</h1>
+
+    <ul>
+    {{range .Adventure.Story}}
+        <li>{{.}}</li>
+    {{end}}
+    </ul>
+
+    <ul>
+        {{range .Adventure.Options}}
+            <li>{{.Text}}</li>
+            <li><a href="/story?adventure={{.Arc}}">{{.Arc}}</a></li>
+        {{end}}
+    </ul>
+
+    {{ if eq .Arc "home"}}
+    {{ range $key, $value := .Story }}
+     <li><strong>{{ $key }}</strong>: <a href="/story?adventure={{$key}}">{{$key}}</a></li>
+    {{ end }}
+    {{ end }}
+
+</body>
+
+</html>
